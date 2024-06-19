@@ -67,6 +67,7 @@ class HomeView extends StatelessWidget {
                     );
                   },
                 );
+            
               },
               style: const ButtonStyle(
                 backgroundColor: MaterialStatePropertyAll(kPrimaryColor),

@@ -20,10 +20,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         // :(context) => HomePage(),
-        'allRecipes': (context) => const AllRecipesView(),
         'home': (context) => const HomeView(),
+        'allRecipes': (context) => const AllRecipesView(),
       },
-      initialRoute: 'home',
+      initialRoute: 'allRecipes',
     );
   }
 }

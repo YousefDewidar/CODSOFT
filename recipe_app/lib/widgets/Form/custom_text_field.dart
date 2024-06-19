@@ -50,10 +50,11 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 ),
           contentPadding: const EdgeInsets.all(17),
           labelText: widget.label,
-          floatingLabelStyle:const TextStyle(fontSize: 18, color: kPrimaryColor),
+          floatingLabelStyle:
+              const TextStyle(fontSize: 18, color: kPrimaryColor),
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide:const BorderSide(color: kPrimaryColor)),
+              borderSide: const BorderSide(color: kPrimaryColor)),
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(12))),
     );
   }
