@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recips_app/constant.dart';
-import 'package:recips_app/widgets/type_food_card.dart';
+import 'package:recips_app/widgets/recommend_card.dart';
+import 'package:recips_app/widgets/type_food_view.dart';
 
 class AllRecipesView extends StatelessWidget {
   const AllRecipesView({super.key});
@@ -30,11 +31,13 @@ class AllRecipesView extends StatelessWidget {
                 Text('Cook, Your ',
                     style:
                         TextStyle(fontWeight: FontWeight.w500, fontSize: 26)),
-                Text('own food',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 26,
-                        color: kPrimaryColor)),
+                Text(
+                  'own food',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 26,
+                      color: kPrimaryColor),
+                ),
               ],
             ),
             const SizedBox(
@@ -74,44 +77,7 @@ class AllRecipesView extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
-            SizedBox(
-              height: 155,
-              child: ListView(
-                clipBehavior: Clip.none,
-                scrollDirection: Axis.horizontal,
-                children: const [
-                  TypeFoodCard(
-                    foodImg: kBurgerImg,
-                    foodName: 'Burger',
-                    isActive: true,
-                  ),
-                  TypeFoodCard(
-                    foodImg: kPastaImg,
-                    foodName: 'Pasta',
-                  ),
-                  TypeFoodCard(
-                    foodImg: kBurgerImg,
-                    foodName: 'Meat',
-                  ),
-                  TypeFoodCard(
-                    foodImg: kBurgerImg,
-                    foodName: 'Burger',
-                  ),
-                  TypeFoodCard(
-                    foodImg: kPastaImg,
-                    foodName: 'Pasta',
-                  ),
-                  TypeFoodCard(
-                    foodImg: kBurgerImg,
-                    foodName: 'Burger',
-                  ),
-                  TypeFoodCard(
-                    foodImg: kPastaImg,
-                    foodName: 'Pasta',
-                  ),
-                ],
-              ),
-            ),
+            const TypeFoodView(),
             const SizedBox(
               height: 18,
             ),
@@ -119,7 +85,7 @@ class AllRecipesView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
-                  'Recomended',
+                  'Recommended',
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
                     fontSize: 24,
@@ -139,72 +105,23 @@ class AllRecipesView extends StatelessWidget {
               ],
             ),
             const SizedBox(
-              height: 18,
+              height: 25,
             ),
-            Expanded(
-              child: ListView(
-                clipBehavior: Clip.none,
+            const Expanded(
+              child: Column(
                 children: [
-                  Stack(children: [
-                    Container(
-                      height: 88,
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.amberAccent),
-                          borderRadius: const BorderRadius.horizontal(
-                              left: Radius.circular(500),
-                              right: Radius.circular(500))),
-                    ),
-                    Positioned(
-                      width: 88,
-                      height: 88,
-                      left: 0,
-                      child: Container(
-                        decoration: BoxDecoration(
-                            color: Colors.amber,
-                            border:
-                                Border.all(width: 8, color: Colors.amberAccent),
-                            borderRadius: BorderRadius.circular(50)),
-                        // child:const CircleAvatar(
-                        //   backgroundColor: Colors.amberAccent,
-                        //   minRadius: 40,
-                        // ),
-                      ),
-                    ),
-                  ]),
-                  const SizedBox(
-                    height: 12,
+                  RecCard(
+                    imgPath: kBurgerImg,
                   ),
-                  Stack(children: [
-                    Container(
-                      height: 80,
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.amberAccent),
-                          borderRadius: const BorderRadius.horizontal(
-                              left: Radius.circular(500),
-                              right: Radius.circular(500))),
-                    ),
-                    Positioned(
-                      width: 88,
-                      height: 88,
-                      left: 0,
-                      child: Container(
-                        decoration: BoxDecoration(
-                            color: Colors.amber,
-                            border:
-                                Border.all(width: 8, color: Colors.amberAccent),
-                            borderRadius: BorderRadius.circular(50)),
-                        // child:const CircleAvatar(
-                        //   backgroundColor: Colors.amberAccent,
-                        //   minRadius: 40,
-                        // ),
-                      ),
-                    ),
-                  ]),
+                  SizedBox(
+                    height: 40,
+                  ),
+                  RecCard(
+                    isCard2: true,
+                    imgPath: kPastaImg,
+                  ),
                 ],
               ),
-            ),
-            const SizedBox(
-              height: 10,
             ),
           ],
         ),
