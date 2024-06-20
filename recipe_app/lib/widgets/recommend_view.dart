@@ -21,7 +21,7 @@ class RecView extends StatelessWidget {
           ),
           RecCard(
             isCard2: true,
-            imgPath: kPastaImg,
+            imgPath: kPizzaImg,
           ),
         ],
       ),

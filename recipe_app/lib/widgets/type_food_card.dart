@@ -22,11 +22,10 @@ class TypeFoodCard extends StatelessWidget {
         elevation: 8,
         shadowColor:
             isActive ? kPrimaryColor : const Color.fromARGB(155, 0, 0, 0),
-        shape: ContinuousRectangleBorder(
-            borderRadius: BorderRadiusDirectional.circular(500)),
+        shape:const StadiumBorder() ,
         child: SizedBox(
           height: 150,
-          width: 100,
+          width: 95,
           child: Column(
             children: [
               const SizedBox(

@@ -13,7 +13,9 @@ class RecCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(clipBehavior: Clip.none, children: [
       Container(
+        padding: const EdgeInsets.only(left: 100, right: 12),
         height: 80,
+        width: double.infinity,
         clipBehavior: Clip.none,
         decoration: BoxDecoration(
             border: Border.all(
@@ -22,6 +24,22 @@ class RecCard extends StatelessWidget {
                     : Colors.amberAccent),
             borderRadius: const BorderRadius.horizontal(
                 left: Radius.circular(500), right: Radius.circular(500))),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              isCard2 ? "Pizza" : "Burger",
+              style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
+            ),
+            Text(
+              isCard2
+                  ? "Delicious pizza let's cook it now."
+                  : "Delicious burger let's cook it now.",
+              style: const TextStyle(fontSize: 16, color: Colors.grey),
+            ),
+          ],
+        ),
       ),
       Positioned(
         width: 90,
@@ -50,8 +68,8 @@ class RecCard extends StatelessWidget {
               radius: 40,
               child: Image.asset(
                 imgPath,
-                width: 40,
-                height: 40,
+                width: 60,
+                height: 60,
               ),
             ),
           )

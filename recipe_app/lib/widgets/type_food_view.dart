@@ -10,7 +10,7 @@ class TypeFoodView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 15.0,bottom: 18),
+      padding: const EdgeInsets.only(top: 15.0, bottom: 18),
       child: SizedBox(
         height: 155,
         child: ListView(
@@ -23,28 +23,16 @@ class TypeFoodView extends StatelessWidget {
               isActive: true,
             ),
             TypeFoodCard(
-              foodImg: kPastaImg,
-              foodName: 'Pasta',
+              foodImg: kDonutImg,
+              foodName: 'donut',
             ),
             TypeFoodCard(
-              foodImg: kBurgerImg,
-              foodName: 'Meat',
+              foodImg: kZingerImg,
+              foodName: 'zinger',
             ),
             TypeFoodCard(
-              foodImg: kBurgerImg,
-              foodName: 'Burger',
-            ),
-            TypeFoodCard(
-              foodImg: kPastaImg,
-              foodName: 'Pasta',
-            ),
-            TypeFoodCard(
-              foodImg: kBurgerImg,
-              foodName: 'Burger',
-            ),
-            TypeFoodCard(
-              foodImg: kPastaImg,
-              foodName: 'Pasta',
+              foodImg: kPizzaImg,
+              foodName: 'pizza',
             ),
           ],
         ),
