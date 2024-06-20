@@ -14,13 +14,6 @@ class AllRecipesView extends StatelessWidget {
         title: const Text('Hi, Name',
             style: TextStyle(fontWeight: FontWeight.w400, fontSize: 20)),
         centerTitle: true,
-        leading: IconButton(
-          icon: const Icon(
-            Icons.vertical_split_rounded,
-            size: 28,
-          ),
-          onPressed: () {},
-        ),
       ),
       body: const SingleChildScrollView(
         child: Padding(

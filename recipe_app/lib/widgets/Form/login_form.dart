@@ -19,68 +19,70 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-        key: formKey,
-        autovalidateMode: autovalidateMode,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              'Welcome back',
-              style:
-                  TextStyle(color: Color.fromARGB(171, 0, 0, 0), fontSize: 25),
-            ),
-        
-            const SizedBox(
-              height: 15,
-            ),
-        
-            // email
-            CustomTextField(
-              label: 'Email',
-              icon: Icons.email_outlined,
-              controller: emailCon,
-            ),
-        
-            const SizedBox(
-              height: 15,
-            ),
-            // password
-            CustomTextField(
-              label: 'Password',
-              icon: Icons.password,
-              controller: passwordCon,
-            ),
-        
-            const SizedBox(
-              height: 10,
-            ),
-        
-            // login
-            CustomButton(
-              onPressed: () async {},
-              text: 'login',
-              color: kPrimaryColor,
-            ),
-        
-            const SizedBox(
-              height: 15,
-            ),
-        
-            // create acc
-            CustomButton(
-              text: 'Create Account',
-              onPressed: () {},
-              color: const Color.fromARGB(136, 255, 99, 71),
-            ),
+    return SingleChildScrollView(
+      child: Form(
+          key: formKey,
+          autovalidateMode: autovalidateMode,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'Welcome back',
+                style:
+                    TextStyle(color: Color.fromARGB(171, 0, 0, 0), fontSize: 25),
+              ),
+          
               const SizedBox(
-              height: 50,
-            ),
-        
-          ],
-        ));
+                height: 15,
+              ),
+          
+              // email
+              CustomTextField(
+                label: 'Email',
+                icon: Icons.email_outlined,
+                controller: emailCon,
+              ),
+          
+              const SizedBox(
+                height: 15,
+              ),
+              // password
+              CustomTextField(
+                label: 'Password',
+                icon: Icons.password,
+                controller: passwordCon,
+              ),
+          
+              const SizedBox(
+                height: 10,
+              ),
+          
+              // login
+              CustomButton(
+                onPressed: () async {},
+                text: 'login',
+                color: kPrimaryColor,
+              ),
+          
+              const SizedBox(
+                height: 15,
+              ),
+          
+              // create acc
+              CustomButton(
+                text: 'Create Account',
+                onPressed: () {},
+                color: const Color.fromARGB(136, 255, 99, 71),
+              ),
+                const SizedBox(
+                height: 50,
+              ),
+          
+            ],
+          )),
+    );
   }
 
 //   Future<UserCredential> signInMethod() {
