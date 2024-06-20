@@ -1,10 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:recips_app/constant.dart';
 import 'package:recips_app/widgets/type_food_card.dart';
 
@@ -74,12 +68,74 @@ class AllRecipesView extends StatelessWidget {
               style: TextStyle(
                 fontWeight: FontWeight.w500,
                 fontSize: 24,
-                color: Color(0xFF515151),
+                color: Color.fromARGB(255, 45, 45, 45),
               ),
             ),
+            const SizedBox(
+              height: 15,
+            ),
+            SizedBox(
+              height: 155,
+              child: ListView(
+                clipBehavior: Clip.none,
+                scrollDirection: Axis.horizontal,
+                children: const [
+                  TypeFoodCard(
+                    foodImg: kBurgerImg,
+                    foodName: 'Burger',
+                    isActive: true,
+                  ),
+                  TypeFoodCard(
+                    foodImg: kPastaImg,
+                    foodName: 'Pasta',
+                  ),
+                  TypeFoodCard(
+                    foodImg: kBurgerImg,
+                    foodName: 'Meat',
+                  ),
+                  TypeFoodCard(
+                    foodImg: kBurgerImg,
+                    foodName: 'Burger',
+                  ),
+                  TypeFoodCard(
+                    foodImg: kPastaImg,
+                    foodName: 'Pasta',
+                  ),
+                  TypeFoodCard(
+                    foodImg: kBurgerImg,
+                    foodName: 'Burger',
+                  ),
+                  TypeFoodCard(
+                    foodImg: kPastaImg,
+                    foodName: 'Pasta',
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 18,
+            ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                TypeFoodCard(),
+                const Text(
+                  'Recomended',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 24,
+                    color: Color.fromARGB(255, 45, 45, 45),
+                  ),
+                ),
+                TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      'View All',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 20,
+                        color: Color.fromARGB(229, 81, 81, 81),
+                      ),
+                    ))
               ],
             )
           ],
