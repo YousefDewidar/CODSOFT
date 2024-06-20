@@ -1,5 +1,12 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 import 'package:recips_app/constant.dart';
+import 'package:recips_app/widgets/type_food_card.dart';
 
 class AllRecipesView extends StatelessWidget {
   const AllRecipesView({super.key});
@@ -19,12 +26,12 @@ class AllRecipesView extends StatelessWidget {
           onPressed: () {},
         ),
       ),
-      body: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.0),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
+            const Row(
               children: [
                 Text('Cook, Your ',
                     style:
@@ -36,10 +43,10 @@ class AllRecipesView extends StatelessWidget {
                         color: kPrimaryColor)),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
-            Card(
+            const Card(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(40))),
               color: Colors.white,
@@ -59,15 +66,22 @@ class AllRecipesView extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
-            Text('What would you like \nto cook today?',
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 24,
-                  color: Color(0xFF515151),
-                )),
+            const Text(
+              'What would you like \nto cook today?',
+              style: TextStyle(
+                fontWeight: FontWeight.w500,
+                fontSize: 24,
+                color: Color(0xFF515151),
+              ),
+            ),
+            Row(
+              children: [
+                TypeFoodCard(),
+              ],
+            )
           ],
         ),
       ),
