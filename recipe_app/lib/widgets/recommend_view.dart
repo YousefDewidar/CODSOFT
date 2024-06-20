@@ -9,19 +9,22 @@ class RecView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        RecCard(
-          imgPath: kBurgerImg,
-        ),
-        SizedBox(
-          height: 40,
-        ),
-        RecCard(
-          isCard2: true,
-          imgPath: kPastaImg,
-        ),
-      ],
+    return const Padding(
+      padding: EdgeInsets.only(top: 25.0),
+      child: Column(
+        children: [
+          RecCard(
+            imgPath: kBurgerImg,
+          ),
+          SizedBox(
+            height: 40,
+          ),
+          RecCard(
+            isCard2: true,
+            imgPath: kPastaImg,
+          ),
+        ],
+      ),
     );
   }
 }
