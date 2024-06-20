@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:recips_app/constant.dart';
 
@@ -17,19 +16,19 @@ class TextCookRow extends StatelessWidget {
         children: [
           const Row(
             children: [
-              Text('Cook, Your ',
-                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 24)),
+              Text('Discover Best ',
+                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 22)),
               Text(
-                'own food',
+                'Recipes',
                 style: TextStyle(
                     fontWeight: FontWeight.w500,
-                    fontSize: 24,
+                    fontSize: 22,
                     color: kPrimaryColor),
               ),
             ],
           ),
           GestureDetector(
-            onTap: (){},
+            onTap: () {},
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 6),
               width: 100,

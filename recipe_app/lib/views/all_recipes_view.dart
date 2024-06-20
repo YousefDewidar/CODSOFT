@@ -11,9 +11,15 @@ class AllRecipesView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Hi, Name',
-            style: TextStyle(fontWeight: FontWeight.w400, fontSize: 20)),
-        centerTitle: true,
+        title: const Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Welcome, ',
+                style: TextStyle(fontWeight: FontWeight.w400, fontSize: 19)),
+            Text('Yousef 👋',
+                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 19)),
+          ],
+        ),
       ),
       body: const SingleChildScrollView(
         child: Padding(
