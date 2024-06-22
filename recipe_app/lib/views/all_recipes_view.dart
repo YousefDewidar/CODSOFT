@@ -21,27 +21,24 @@ class AllRecipesView extends StatelessWidget {
           ],
         ),
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const TextCookRow(),
-              const SearchCard(),
-              const Text(
-                'What would you like \nto cook today?',
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 24,
-                  color: Color.fromARGB(255, 45, 45, 45),
-                ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const TextCookRow(),
+            const SearchCard(),
+            const Text(
+              'What would you like \nto cook today?',
+              style: TextStyle(
+                fontWeight: FontWeight.w500,
+                fontSize: 24,
+                color: Color.fromARGB(255, 45, 45, 45),
               ),
-              TypeFoodView(),
-              const RecommendedRow(),
-              const RecView(),
-            ],
-          ),
+            ),
+            TypeFoodView(),
+            const RecView(),
+          ],
         ),
       ),
     );
