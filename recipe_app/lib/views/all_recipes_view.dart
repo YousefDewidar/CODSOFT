@@ -21,15 +21,15 @@ class AllRecipesView extends StatelessWidget {
           ],
         ),
       ),
-      body: const SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.0),
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TextCookRow(),
-              SearchCard(),
-              Text(
+              const TextCookRow(),
+              const SearchCard(),
+              const Text(
                 'What would you like \nto cook today?',
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
@@ -38,8 +38,8 @@ class AllRecipesView extends StatelessWidget {
                 ),
               ),
               TypeFoodView(),
-              RecommendedRow(),
-              RecView(),
+              const RecommendedRow(),
+              const RecView(),
             ],
           ),
         ),
