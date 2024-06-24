@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:recips_app/model/recipe_model.dart';
 
 class RecCard extends StatelessWidget {
   const RecCard({
     super.key,
-    this.isCard2 = false,
-    required this.imgPath,
+    required this.rec,
+    required this.index,
   });
-  final bool isCard2;
-  final String imgPath;
+  final Recipe rec;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class RecCard extends StatelessWidget {
         clipBehavior: Clip.none,
         decoration: BoxDecoration(
             border: Border.all(
-                color: isCard2
+                color: index % 2 != 0
                     ? const Color.fromARGB(128, 245, 122, 163)
                     : Colors.amberAccent),
             borderRadius: const BorderRadius.horizontal(
@@ -29,13 +30,12 @@ class RecCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              isCard2 ? "Pizza" : "Burger",
+              rec.name,
               style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
             ),
             Text(
-              isCard2
-                  ? "Delicious pizza let's cook it now."
-                  : "Delicious burger let's cook it now.",
+              rec.description,
+              overflow: TextOverflow.ellipsis,
               style: const TextStyle(fontSize: 16, color: Colors.grey),
             ),
           ],
@@ -52,7 +52,7 @@ class RecCard extends StatelessWidget {
                 border: Border(
                   left: BorderSide(
                       width: 50,
-                      color: isCard2
+                      color: index % 2 != 0
                           ? const Color.fromARGB(209, 245, 122, 163)
                           : Colors.amber),
                 ),
@@ -62,12 +62,12 @@ class RecCard extends StatelessWidget {
             left: 8,
             top: 6,
             child: CircleAvatar(
-              backgroundColor: isCard2
+              backgroundColor: index % 2 != 0
                   ? const Color.fromARGB(255, 253, 217, 229)
                   : Colors.amberAccent,
               radius: 40,
               child: Image.asset(
-                imgPath,
+                rec.img,
                 width: 60,
                 height: 60,
               ),

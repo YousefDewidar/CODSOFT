@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recips_app/constant.dart';
+import 'package:recips_app/helper/get_recipe_data.dart';
 import 'package:recips_app/widgets/recommend_card.dart';
 
 class RecView extends StatefulWidget {
@@ -16,7 +16,6 @@ class _RecViewState extends State<RecView> {
   String buttonName = 'View All';
   ScrollPhysics scrollPhysics = const NeverScrollableScrollPhysics();
   double numRotatex = 0;
-
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +38,7 @@ class _RecViewState extends State<RecView> {
                   onPressed: () {
                     if (buttonName == 'View All') {
                       buttonName = 'Hide';
-                      itemCount = 10;
+                      itemCount = recipeDetails().length;
                       scrollPhysics = const AlwaysScrollableScrollPhysics();
                       numRotatex = .25;
                       setState(() {});
@@ -73,12 +72,13 @@ class _RecViewState extends State<RecView> {
               padding: const EdgeInsets.only(left: 2, top: 10),
               physics: scrollPhysics,
               itemCount: itemCount,
-              itemBuilder: (context, index) => const Column(
+              itemBuilder: (context, index) => Column(
                 children: [
                   RecCard(
-                    imgPath: kBurgerImg,
+                    rec: recipeDetails()[index],
+                    index: index,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 40,
                   ),
                 ],

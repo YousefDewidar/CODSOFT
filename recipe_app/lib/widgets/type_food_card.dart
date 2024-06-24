@@ -35,9 +35,8 @@ class TypeFoodCard extends StatelessWidget {
                 rec.name.toUpperCase(),
                 style: const TextStyle(fontWeight: FontWeight.w500),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
-                child: Text(rec.ingredients['protein'].toString()),
               ),
             ],
           ),
