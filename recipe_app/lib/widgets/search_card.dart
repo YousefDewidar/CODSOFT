@@ -8,17 +8,18 @@ class SearchCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(bottom: 15.0),
+    return  Padding(
+      padding: const EdgeInsets.only(bottom: 15.0),
       child: Card(
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(40))),
         color: Colors.white,
         elevation: 6,
-        shadowColor: Color.fromARGB(116, 212, 212, 212),
+        shadowColor: const Color.fromARGB(116, 212, 212, 212),
         surfaceTintColor: Colors.white,
         child: TextField(
-          decoration: InputDecoration(
+            onChanged: (v) {},
+          decoration: const InputDecoration(
             border: InputBorder.none,
             enabledBorder: InputBorder.none,
             focusedBorder: InputBorder.none,
