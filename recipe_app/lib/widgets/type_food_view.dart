@@ -1,19 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:recips_app/constant.dart';
-import 'package:recips_app/model/food.dart';
+import 'package:recips_app/helper/get_recipe_data.dart';
 import 'package:recips_app/widgets/type_food_card.dart';
 
 class TypeFoodView extends StatelessWidget {
-  TypeFoodView({
+  const TypeFoodView({
     super.key,
   });
-
-  final List<Food> foodList = [
-    Food(foodImg: kBurgerImg, foodName: 'Burger',isActive: true),
-    Food(foodImg: kDonutImg, foodName: 'donut'),
-    Food(foodImg: kZingerImg, foodName: 'Zinger'),
-    Food(foodImg: kPizzaImg, foodName: 'pizza'),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +16,9 @@ class TypeFoodView extends StatelessWidget {
         child: ListView.builder(
           clipBehavior: Clip.none,
           scrollDirection: Axis.horizontal,
-          itemCount: foodList.length,
+          itemCount: recipeDetails().length,
           itemBuilder: (context, index) {
-            return TypeFoodCard(food: foodList[index]);
+            return TypeFoodCard(rec: recipeDetails()[index]);
           },
         ),
       ),

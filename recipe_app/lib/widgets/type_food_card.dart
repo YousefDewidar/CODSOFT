@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:recips_app/constant.dart';
-import 'package:recips_app/model/food.dart';
+import 'package:recips_app/model/recipe_model.dart';
 
 class TypeFoodCard extends StatelessWidget {
-  const TypeFoodCard({
-    super.key,
-    required this.food
-  });
-  final Food food;
+  const TypeFoodCard({super.key, required this.rec});
+  final Recipe rec;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(right: 8.0),
       child: Card(
-        color: food.isActive ? kPrimaryColor : Colors.white,
+        color: rec.isActive ? kPrimaryColor : Colors.white,
         surfaceTintColor: Colors.white,
         elevation: 8,
         shadowColor:
-            food.isActive ? kPrimaryColor : const Color.fromARGB(155, 0, 0, 0),
+            rec.isActive ? kPrimaryColor : const Color.fromARGB(155, 0, 0, 0),
         shape: const StadiumBorder(),
         child: SizedBox(
           height: 150,
@@ -29,17 +26,18 @@ class TypeFoodCard extends StatelessWidget {
                 height: 25,
               ),
               Image.asset(
-                food.foodImg,
+                rec.img,
                 height: 80,
                 width: 80,
               ),
               const Spacer(),
               Text(
-                food.foodName.toUpperCase(),
+                rec.name.toUpperCase(),
                 style: const TextStyle(fontWeight: FontWeight.w500),
               ),
-              const SizedBox(
+              SizedBox(
                 height: 20,
+                child: Text(rec.ingredients['protein'].toString()),
               ),
             ],
           ),
