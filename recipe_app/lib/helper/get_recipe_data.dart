@@ -1,7 +1,7 @@
 import 'package:recips_app/constant.dart';
 import 'package:recips_app/model/recipe_model.dart';
 
-List recipeDetails() {
+List<Recipe> recipeDetails() {
   List<Recipe> recipeList = [
     Recipe(
       name: 'Burger',
