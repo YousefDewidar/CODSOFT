@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recips_app/views/all_recipes_view.dart';
 import 'package:recips_app/views/home_view.dart';
+import 'package:recips_app/views/recipe_details_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,8 +19,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         // :(context) => HomePage(),
-        'home': (context) => const HomeView(),
-        'allRecipes': (context) => const AllRecipesView(),
+        HomeView.id: (context) => const HomeView(),
+        AllRecipesView.id: (context) => const AllRecipesView(),
+        RecipeDetailsView.id: (context) => const RecipeDetailsView(),
       },
       initialRoute: 'allRecipes',
     );

@@ -4,6 +4,7 @@ import 'package:recips_app/widgets/Form/login_form.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
+  static String id = 'home';
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +68,6 @@ class HomeView extends StatelessWidget {
                     );
                   },
                 );
-            
               },
               style: const ButtonStyle(
                 backgroundColor: MaterialStatePropertyAll(kPrimaryColor),

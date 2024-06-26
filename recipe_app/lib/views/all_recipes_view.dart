@@ -8,6 +8,7 @@ import 'package:recips_app/widgets/type_food_view.dart';
 
 class AllRecipesView extends StatelessWidget {
   const AllRecipesView({super.key});
+  static String id = 'allRecipes';
 
   @override
   Widget build(BuildContext context) {
