@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recips_app/constant.dart';
-import 'package:recips_app/widgets/Form/login_form.dart';
+import 'package:recips_app/views/all_recipes_view.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -51,23 +51,8 @@ class HomeView extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                showModalBottomSheet(
-                  showDragHandle: true,
-                  barrierColor: const Color.fromARGB(197, 146, 146, 144),
-                  context: context,
-                  builder: (context) {
-                    return const Dialog(
-                      alignment: Alignment.bottomCenter,
-                      backgroundColor: Colors.transparent,
-                      insetPadding: EdgeInsets.zero,
-                      surfaceTintColor: Colors.transparent,
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 27.0),
-                        child: LoginForm(),
-                      ),
-                    );
-                  },
-                );
+                Navigator.pushNamedAndRemoveUntil(
+                    context, AllRecipesView.id, (route) => false);
               },
               style: const ButtonStyle(
                 backgroundColor: MaterialStatePropertyAll(kPrimaryColor),

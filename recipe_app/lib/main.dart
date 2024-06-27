@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         HomeView.id: (context) => const HomeView(),
         AllRecipesView.id: (context) => const AllRecipesView(),
       },
-      initialRoute: AllRecipesView.id,
+      initialRoute: HomeView.id,
     );
   }
 }
