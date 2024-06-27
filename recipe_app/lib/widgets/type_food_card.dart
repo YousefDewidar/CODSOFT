@@ -10,7 +10,11 @@ class TypeFoodCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.pushNamed(context, RecipeDetailsView.id),
+      onTap: () => Navigator.push(context, MaterialPageRoute(
+        builder: (context) {
+          return RecipeDetailsView(rec: rec); 
+        },
+      )),
       child: Padding(
         padding: const EdgeInsets.only(right: 8.0),
         child: Card(

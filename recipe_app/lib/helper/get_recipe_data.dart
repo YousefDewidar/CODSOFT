@@ -10,6 +10,7 @@ List<Recipe> recipeDetails() {
       ingredients: {
         'protein': 30,
         'calories': 500,
+        'time': 25,
       },
       instructions: '''
 1. Form ground beef (or your preferred protein source) into patties slightly larger than the burger buns to account for shrinkage during cooking.
@@ -28,6 +29,7 @@ List<Recipe> recipeDetails() {
       ingredients: {
         'protein': 5,
         'calories': 350,
+        'time': 35,
       },
       instructions: '''
 1. Prepare donut dough according to your preferred recipe or use store-bought dough.
@@ -42,7 +44,9 @@ List<Recipe> recipeDetails() {
       description: 'A spicy and flavorful burger with a crispy chicken patty.',
       ingredients: {
         'protein': 40, // Adjust based on patty size
-        'calories': 600, // Adjust based on ingredients
+        'calories': 600,
+        'time': 45,
+        // Adjust based on ingredients
       },
       instructions:
           '''1. Marinate chicken breast in a mixture of yogurt, chili powder, paprika, and other spices for at least 30 minutes.2. Prepare burger buns according to package instructions (toast if desired).3. Cook the marinated chicken breast until golden brown and cooked through.4. Assemble the burger with your favorite toppings like lettuce, tomato, onion, cheese, and spicy mayo.
@@ -55,7 +59,9 @@ List<Recipe> recipeDetails() {
           'A crowd-pleasing pizza with a tomato sauce base, mozzarella cheese, and your favorite toppings.',
       ingredients: {
         'protein': 20, // Adjust based on toppings
-        'calories': 450, // Adjust based on size and toppings
+        'calories': 450,
+        'time': 30,
+        // Adjust based on size and toppings
       },
       instructions: '''
 1. Preheat oven to 450°F (230°C).
@@ -71,7 +77,9 @@ List<Recipe> recipeDetails() {
           'A comforting pasta dish with a rich tomato sauce and creamy cheese.',
       ingredients: {
         'protein': 15, // Adjust based on cheese and protein source
-        'calories': 500, // Adjust based on ingredients
+        'calories': 500,
+        'time': 20,
+        // Adjust based on ingredients
       },
       instructions: '''
 1. Cook your favorite pasta according to package instructions.
@@ -89,6 +97,7 @@ List<Recipe> recipeDetails() {
       ingredients: {
         'protein': 35,
         'calories': 500,
+        'time': 60,
       },
       instructions: '''
 1. Preheat oven to 375°F (190°C).

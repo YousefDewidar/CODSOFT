@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:recips_app/constant.dart';
 
 class ImageFoodCard extends StatelessWidget {
   const ImageFoodCard({
-    super.key,
+    super.key, required this.img,
   });
+  final String img;
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      shadowColor:const Color.fromARGB(54, 167, 167, 167),
+      shadowColor: const Color.fromARGB(54, 167, 167, 167),
       elevation: 10,
       surfaceTintColor: Colors.white,
       margin: EdgeInsets.zero,
@@ -23,7 +23,7 @@ class ImageFoodCard extends StatelessWidget {
           child: CircleAvatar(
             radius: 120,
             backgroundColor: Colors.transparent,
-            child: Image.asset(kBurgerImg),
+            child: Image.asset(img),
           ),
         ),
       ),
