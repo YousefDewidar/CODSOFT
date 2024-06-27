@@ -1,0 +1,32 @@
+import 'package:flutter/material.dart';
+import 'package:recips_app/constant.dart';
+
+class ImageFoodCard extends StatelessWidget {
+  const ImageFoodCard({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      shadowColor:const Color.fromARGB(54, 167, 167, 167),
+      elevation: 10,
+      surfaceTintColor: Colors.white,
+      margin: EdgeInsets.zero,
+      shape: const ContinuousRectangleBorder(
+          borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(100),
+              bottomRight: Radius.circular(100))),
+      child: SizedBox(
+        height: 250,
+        child: Center(
+          child: CircleAvatar(
+            radius: 120,
+            backgroundColor: Colors.transparent,
+            child: Image.asset(kBurgerImg),
+          ),
+        ),
+      ),
+    );
+  }
+}
