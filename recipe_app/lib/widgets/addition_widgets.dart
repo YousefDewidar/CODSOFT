@@ -12,10 +12,10 @@ class TextCookRow extends StatelessWidget {
       padding: EdgeInsets.only(bottom: 15.0),
       child: Row(
         children: [
-          Text('Discover Best ',
+          Text('Cook, Your ',
               style: TextStyle(fontWeight: FontWeight.w500, fontSize: 22)),
           Text(
-            'Recipes',
+            'Own Food',
             style: TextStyle(
                 fontWeight: FontWeight.w500,
                 fontSize: 22,

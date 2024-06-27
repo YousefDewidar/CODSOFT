@@ -19,10 +19,9 @@ class AllRecipesView extends StatelessWidget {
           title: const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Welcome, ',
+              Text('Welcome 👋',
                   style: TextStyle(fontWeight: FontWeight.w400, fontSize: 19)),
-              Text('Yousef 👋',
-                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 19)),
+              
             ],
           ),
         ),
