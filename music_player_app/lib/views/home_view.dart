@@ -36,7 +36,7 @@ class HomeView extends StatelessWidget {
           CustomButton(
             text: 'Get Started',
             onPressed: () {
-              Navigator.pushNamed(context, AllTracks.id);
+              Navigator.pushNamedAndRemoveUntil(context, AllTracks.id,(route) => false,);
             },
           ),
           space(80),
