@@ -25,6 +25,10 @@ SizedBox space(double v, {String dir = 'v'}) {
 class Style {
   static TextStyle bold25white = const TextStyle(
       fontSize: 25, fontWeight: FontWeight.w500, color: Colors.white);
+  static TextStyle bold25black = const TextStyle(
+      fontSize: 25,
+      fontWeight: FontWeight.w500,
+      color: Color.fromARGB(208, 0, 0, 0));
 
   static TextStyle bold16white = const TextStyle(
       fontSize: 16, fontWeight: FontWeight.w500, color: Colors.white);

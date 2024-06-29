@@ -1,12 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:music_player_app/constants.dart';
+import 'package:music_player_app/views/all_tracks.dart';
 import 'package:music_player_app/widgets/custom_button.dart';
 import 'package:music_player_app/widgets/decoration_card.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
+  static String id = 'home';
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,9 @@ class HomeView extends StatelessWidget {
           space(60),
           CustomButton(
             text: 'Get Started',
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, AllTracks.id);
+            },
           ),
           space(80),
           const DecorationCard()

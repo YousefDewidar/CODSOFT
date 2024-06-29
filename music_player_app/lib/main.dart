@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_player_app/views/all_tracks.dart';
 import 'package:music_player_app/views/home_view.dart';
 
 void main() {
@@ -10,9 +11,13 @@ class SamanyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeView(),
+      routes: {
+        HomeView.id:(context) => const HomeView(),
+        AllTracks.id:(context) =>const AllTracks(),
+      },
+      initialRoute:  HomeView.id ,
     );
   }
 }
