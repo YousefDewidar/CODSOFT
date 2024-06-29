@@ -39,13 +39,8 @@ class FloatingPlayCard extends StatelessWidget {
           elevation: 0,
           child: Row(
             children: [
-              Image.asset(
-                'assets/35228-3-pizza-slice-file.png',
-                height: 60,
-                width: 80,
-              ),
+              const PlayCard(),
               space(15, dir: 'h'),
-              
               // track name & time
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,10 +54,12 @@ class FloatingPlayCard extends StatelessWidget {
                   ),
                 ],
               ),
-              
               const Spacer(),
-              
-              const PlayCard(),
+              Image.asset(
+                'assets/35228-3-pizza-slice-file.png',
+                height: 50,
+                width: 60,
+              ),
             ],
           ),
         ),

@@ -19,6 +19,8 @@ class HomeView extends StatelessWidget {
           space(100),
           const CircleAvatar(
             radius: 120,
+            backgroundImage: AssetImage(
+                'assets/1920-attractive-woman-in-a-dj-headphonesand-sunglasse.jpg'),
           ),
           space(30),
           Text(
@@ -36,7 +38,11 @@ class HomeView extends StatelessWidget {
           CustomButton(
             text: 'Get Started',
             onPressed: () {
-              Navigator.pushNamedAndRemoveUntil(context, AllTracks.id,(route) => false,);
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                AllTracks.id,
+                (route) => false,
+              );
             },
           ),
           space(80),
