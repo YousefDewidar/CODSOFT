@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:music_player_app/constants.dart';
+import 'package:music_player_app/widgets/recently_card.dart';
 import 'package:music_player_app/widgets/track_card.dart';
 
 class AllTracks extends StatelessWidget {
@@ -17,14 +18,27 @@ class AllTracks extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Tracks', style: Style.bold25white),
+                Text('Recently Played', style: Style.bold25white),
+                space(15),
                 SizedBox(
-                  height: 400,
+                  height: 200,
                   child: ListView.builder(
-                    itemBuilder: (context, index) => const TrackCard(),
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) => const RecentlyTrackCard(),
                     itemCount: 5,
                   ),
                 ),
+                space(15),
+                Text('Tracks', style: Style.bold25white),
+                space(15),
+                SizedBox(
+                  height: 500,
+                  child: ListView.builder(
+                    itemBuilder: (context, index) => const TrackCard(),
+                    itemCount: 10,
+                  ),
+                ),
+                space(15),
               ],
             ),
           ),

@@ -9,7 +9,7 @@ class TrackCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 0.0),
+        padding: const EdgeInsets.symmetric(vertical: 2.0),
         child: Card(
           color: const Color.fromARGB(110, 34, 29, 62),
           shape: ContinuousRectangleBorder(
