@@ -33,8 +33,7 @@ class AllTracks extends StatelessWidget {
                   height: 200,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) =>
-                        const RecentlyTrackCard(),
+                    itemBuilder: (context, index) => const RecentlyTrackCard(),
                     itemCount: 5,
                   ),
                 ),
@@ -48,7 +47,6 @@ class AllTracks extends StatelessWidget {
                     itemCount: 10,
                   ),
                 ),
-
               ],
             ),
             const FloatingPlayCard()
