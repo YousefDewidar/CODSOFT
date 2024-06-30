@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:music_player_app/constants.dart';
+import 'package:music_player_app/model/track_model.dart';
 import 'package:music_player_app/views/track_view.dart';
 import 'package:music_player_app/widgets/play_card.dart';
 
 class TrackCard extends StatelessWidget {
-  const TrackCard({super.key});
+  const TrackCard({super.key, required this.track});
+  final Track track;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const TrackView()));
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => TrackView(
+                      track: track,
+                    )));
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 2.0),
@@ -23,20 +29,20 @@ class TrackCard extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
             child: Row(
               children: [
-                Image.asset(
-                  'assets/35228-3-pizza-slice-file.png',
+                Image.network(
+                  track.img,
                   height: 60,
-                  width: 80,
+                  width: 50,
                 ),
                 space(15, dir: 'h'),
                 // track name & time
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Home Eyes', style: Style.bold16white),
+                    Text(track.title, style: Style.bold16white),
                     Row(
                       children: [
-                        Text('singer | ', style: Style.greyText),
+                        Text('${track.singer.split(' ')[0]} | ', style: Style.greyText),
                         Text('3:06', style: Style.greyText),
                       ],
                     ),

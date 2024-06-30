@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:music_player_app/constants.dart';
+import 'package:music_player_app/model/track_model.dart';
 import 'package:music_player_app/widgets/arrow_app_bar.dart';
 import 'package:music_player_app/widgets/decoration_card.dart';
 import 'package:music_player_app/widgets/play_card.dart';
 
 class TrackView extends StatefulWidget {
-  const TrackView({super.key});
+  const TrackView({super.key, required this.track});
+  final Track track;
 
   @override
   State<TrackView> createState() => _TrackViewState();
@@ -17,7 +19,7 @@ class _TrackViewState extends State<TrackView> {
   bool isPlay = false;
 
   void playMusic() async {
-    await player.setAsset('assets/ff.mp3');
+    await player.setUrl(widget.track.url);
     player.play();
   }
 
@@ -39,9 +41,8 @@ class _TrackViewState extends State<TrackView> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           space(30),
-          const CircleAvatar(
-            backgroundImage: AssetImage(
-                'assets/1920-attractive-woman-in-a-dj-headphonesand-sunglasse.jpg'),
+          CircleAvatar(
+            backgroundImage: NetworkImage(widget.track.img),
             radius: 120,
           ),
           space(20),
@@ -55,12 +56,12 @@ class _TrackViewState extends State<TrackView> {
           ),
           space(20),
           Text(
-            'Song name',
+            widget.track.title,
             style: Style.bold25white,
           ),
           space(10),
           Text(
-            'name singer',
+            widget.track.singer,
             style: Style.greyText,
           ),
           space(20),

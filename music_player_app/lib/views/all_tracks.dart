@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:music_player_app/constants.dart';
+import 'package:music_player_app/helper/music_list.dart';
 import 'package:music_player_app/widgets/floating_play_card.dart';
 import 'package:music_player_app/widgets/recently_card.dart';
 import 'package:music_player_app/widgets/track_card.dart';
@@ -33,8 +34,10 @@ class AllTracks extends StatelessWidget {
                   height: 200,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) => const RecentlyTrackCard(),
-                    itemCount: 5,
+                    itemBuilder: (context, index) => RecentlyTrackCard(
+                      track: musicList[index],
+                    ),
+                    itemCount: musicList.length,
                   ),
                 ),
                 space(15),
@@ -43,8 +46,10 @@ class AllTracks extends StatelessWidget {
                 SizedBox(
                   height: 404,
                   child: ListView.builder(
-                    itemBuilder: (context, index) => const TrackCard(),
-                    itemCount: 10,
+                    itemBuilder: (context, index) => TrackCard(
+                      track: musicList[index],
+                    ),
+                    itemCount: musicList.length,
                   ),
                 ),
               ],
