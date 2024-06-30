@@ -16,21 +16,21 @@ class DecorationCard extends StatelessWidget {
         color: Colors.transparent,
         boxShadow: [
           BoxShadow(
-            color: Col.pinkCol,
+            color: Col.pinkCol.withAlpha(200),
             blurRadius: 50,
             offset: const Offset(-50, 0),
             spreadRadius: 40,
           ),
           BoxShadow(
-            color: Col.blueCol,
+            color: Col.blueCol.withAlpha(200),
             blurRadius: 50,
             offset: const Offset(50, 0),
             spreadRadius: 40,
-            
           )
         ],
         shape: BoxShape.circle,
       ),
+      constraints:const BoxConstraints(maxHeight: 20),
     );
   }
 }

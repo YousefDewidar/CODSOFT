@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:glassmorphism/glassmorphism.dart';
 import 'package:music_player_app/constants.dart';
-import 'package:music_player_app/widgets/play_music_card.dart';
+import 'package:music_player_app/widgets/play_card.dart';
 
 class FloatingPlayCard extends StatelessWidget {
   const FloatingPlayCard({

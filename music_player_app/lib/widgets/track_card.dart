@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:music_player_app/constants.dart';
-import 'package:music_player_app/widgets/play_music_card.dart';
+import 'package:music_player_app/views/track_view.dart';
+import 'package:music_player_app/widgets/play_card.dart';
 
 class TrackCard extends StatelessWidget {
   const TrackCard({super.key});
@@ -8,6 +9,10 @@ class TrackCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) =>const TrackView()));
+      },
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 2.0),
         child: Card(

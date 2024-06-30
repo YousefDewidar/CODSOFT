@@ -13,7 +13,6 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       backgroundColor: Col.backgroundCol,
       body: Column(
-        // mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           space(100),
@@ -45,7 +44,7 @@ class HomeView extends StatelessWidget {
               );
             },
           ),
-          space(80),
+          space(150),
           const DecorationCard()
         ],
       ),
