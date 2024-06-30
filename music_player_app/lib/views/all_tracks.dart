@@ -44,8 +44,11 @@ class AllTracks extends StatelessWidget {
                 Text('Tracks', style: Style.bold25white),
                 space(15),
                 SizedBox(
-                  height: 404,
+                  height:404 -48,
                   child: ListView.builder(
+                    physics:const BouncingScrollPhysics(),
+
+                    padding:const EdgeInsets.only(bottom: 100),
                     itemBuilder: (context, index) => TrackCard(
                       track: musicList[index],
                     ),
@@ -54,10 +57,30 @@ class AllTracks extends StatelessWidget {
                 ),
               ],
             ),
-            const FloatingPlayCard()
+            
           ]),
         ),
       ),
+      bottomNavigationBar: Container(
+        color: Col.backgroundCol,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.home),
+                color: const Color.fromARGB(136, 255, 255, 255)),
+            IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.favorite,
+                ),
+                color: const Color.fromARGB(136, 255, 255, 255)),
+          ],
+        ),
+      ),  
+      floatingActionButton: const FloatingPlayCard(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:music_player_app/constants.dart';
 import 'package:music_player_app/model/track_model.dart';
 import 'package:music_player_app/views/track_view.dart';
-import 'package:music_player_app/widgets/play_card.dart';
 
 class TrackCard extends StatelessWidget {
   const TrackCard({super.key, required this.track});
@@ -13,11 +12,12 @@ class TrackCard extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => TrackView(
-                      track: track,
-                    )));
+          context,
+          MaterialPageRoute(
+              builder: (context) => TrackView(
+                    track: track,
+                  )),
+        );
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 2.0),
@@ -42,15 +42,11 @@ class TrackCard extends StatelessWidget {
                     Text(track.title, style: Style.bold16white),
                     Row(
                       children: [
-                        Text('${track.singer.split(' ')[0]} | ', style: Style.greyText),
+                        Text('${track.singer} | ', style: Style.greyText),
                         Text('3:06', style: Style.greyText),
                       ],
                     ),
                   ],
-                ),
-                const Spacer(),
-                const PlayCard(
-                  isPlay: false,
                 ),
               ],
             ),

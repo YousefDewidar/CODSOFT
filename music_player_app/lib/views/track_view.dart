@@ -16,11 +16,18 @@ class TrackView extends StatefulWidget {
 
 class _TrackViewState extends State<TrackView> {
   final AudioPlayer player = AudioPlayer();
-  bool isPlay = false;
+  final PageController pageController = PageController();
+  bool isPlay = true;
 
-  void playMusic() async {
+  void loadMusic() async {
     await player.setUrl(widget.track.url);
     player.play();
+  }
+
+  @override
+  void initState() {
+    loadMusic();
+    super.initState();
   }
 
   @override
@@ -87,7 +94,7 @@ class _TrackViewState extends State<TrackView> {
                     setState(() {});
                   } else if (isPlay == false) {
                     isPlay = true;
-                    playMusic();
+                    player.play();
                     setState(() {});
                   }
                 },
