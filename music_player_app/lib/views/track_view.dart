@@ -14,6 +14,7 @@ class TrackView extends StatefulWidget {
 
 class _TrackViewState extends State<TrackView> {
   final AudioPlayer player = AudioPlayer();
+  bool isPlay = false;
 
   void playMusic() async {
     await player.setAsset('assets/ff.mp3');
@@ -77,8 +78,17 @@ class _TrackViewState extends State<TrackView> {
               PlayCard(
                 width: 120,
                 height: 70,
+                isPlay: isPlay,
                 onPressed: () {
-                  playMusic();
+                  if (isPlay == true) {
+                    isPlay = false;
+                    player.pause();
+                    setState(() {});
+                  } else if (isPlay == false) {
+                    isPlay = true;
+                    playMusic();
+                    setState(() {});
+                  }
                 },
               ),
               IconButton(

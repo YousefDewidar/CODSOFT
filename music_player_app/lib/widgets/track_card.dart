@@ -10,8 +10,8 @@ class TrackCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) =>const TrackView()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const TrackView()));
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 2.0),
@@ -29,7 +29,6 @@ class TrackCard extends StatelessWidget {
                   width: 80,
                 ),
                 space(15, dir: 'h'),
-
                 // track name & time
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,10 +42,10 @@ class TrackCard extends StatelessWidget {
                     ),
                   ],
                 ),
-
                 const Spacer(),
-
-                const PlayCard(),
+                const PlayCard(
+                  isPlay: false,
+                ),
               ],
             ),
           ),

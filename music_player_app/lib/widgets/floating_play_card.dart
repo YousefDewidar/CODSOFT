@@ -39,7 +39,7 @@ class FloatingPlayCard extends StatelessWidget {
           elevation: 0,
           child: Row(
             children: [
-              const PlayCard(),
+              const PlayCard(isPlay: false,),
               space(15, dir: 'h'),
               // track name & time
               Column(
