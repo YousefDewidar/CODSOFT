@@ -1,11 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:music_player_app/constants.dart';
 import 'package:music_player_app/widgets/arrow_app_bar.dart';
 import 'package:music_player_app/widgets/decoration_card.dart';
 import 'package:music_player_app/widgets/play_card.dart';
 
-class TrackView extends StatelessWidget {
+class TrackView extends StatefulWidget {
   const TrackView({super.key});
+
+  @override
+  State<TrackView> createState() => _TrackViewState();
+}
+
+class _TrackViewState extends State<TrackView> {
+  final AudioPlayer player = AudioPlayer();
+
+  void playMusic() async {
+    await player.setAsset('assets/ff.mp3');
+    player.play();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,9 +74,12 @@ class TrackView extends StatelessWidget {
               IconButton(
                   onPressed: () {},
                   icon: const Icon(Icons.arrow_back_ios, color: Colors.white)),
-              const PlayCard(
+              PlayCard(
                 width: 120,
                 height: 70,
+                onPressed: () {
+                  playMusic();
+                },
               ),
               IconButton(
                   onPressed: () {},

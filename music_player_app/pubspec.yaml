@@ -38,6 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   svg_flutter: ^0.0.1
   glassmorphism: ^3.0.0
+  just_audio: ^0.9.38
 
 
 dev_dependencies:

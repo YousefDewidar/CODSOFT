@@ -6,10 +6,13 @@ import '../constants.dart';
 class PlayCard extends StatelessWidget {
   final double width;
   final double height;
+  final void Function()? onPressed;
+
   const PlayCard({
     this.width = 50,
     this.height = 50,
-    super.key,
+    this.onPressed,
+    super.key, 
   });
 
   @override
@@ -37,7 +40,7 @@ class PlayCard extends StatelessWidget {
           ),
         ),
         child: RawMaterialButton(
-          onPressed: () {},
+          onPressed: onPressed,
           shape: const CircleBorder(),
           fillColor: const Color(0xff404c57),
           child: SvgPicture.asset('assets/icon-play.svg'),
