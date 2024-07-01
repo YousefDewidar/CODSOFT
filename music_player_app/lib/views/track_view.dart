@@ -18,13 +18,15 @@ class _TrackViewState extends State<TrackView> {
   final AudioPlayer player = AudioPlayer();
   final PageController pageController = PageController();
   bool isPlay = true;
+  Duration position = Duration.zero;
+  Duration duration = const Duration(seconds: 428); // time of Sleepy Cat
 
   void loadMusic() async {
     await player.setUrl(widget.track.url);
     player.play();
   }
 
-  String musicTimeNow(Duration num) {
+  String musicTime(Duration num) {
     String time = '0:00';
     time = '${num.inMinutes}:${num.inSeconds}';
     return time;
@@ -32,8 +34,24 @@ class _TrackViewState extends State<TrackView> {
 
   @override
   void initState() {
-    loadMusic();
     super.initState();
+
+    loadMusic();
+    player.positionStream.listen((d) {
+      setState(() {
+        position = d;
+        if (position == duration) {
+          isPlay = false;
+          player.stop();
+        }
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    player.dispose();
+    super.dispose();
   }
 
   @override
@@ -78,17 +96,26 @@ class _TrackViewState extends State<TrackView> {
             style: Style.greyText,
           ),
           space(20),
-          Slider(value: .5, onChanged: (v) {}),
+          Slider(
+              value: position.inSeconds.toDouble(),
+              min: 0.0,
+              max: duration.inSeconds.toDouble(),
+              onChanged: (v) {
+                setState(() {
+                  position = Duration(seconds: v.toInt());
+                  player.seek(position);
+                });
+              }),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'data',
+                  '${duration.inMinutes}:${duration.inSeconds}',
                   style: Style.white16,
                 ),
-                Text(musicTimeNow(player.position), style: Style.white16),
+                Text(musicTime(player.position), style: Style.white16),
               ],
             ),
           ),
@@ -100,7 +127,13 @@ class _TrackViewState extends State<TrackView> {
                   onPressed: () {},
                   icon: const Icon(Icons.shuffle, color: Colors.white)),
               IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    if (position.inSeconds >= 10) {
+                      position = Duration(seconds: position.inSeconds - 10);
+                      player.seek(position);
+                      setState(() {});
+                    }
+                  },
                   icon: const Icon(Icons.arrow_back_ios, color: Colors.white)),
               PlayCard(
                 width: 120,
@@ -119,7 +152,13 @@ class _TrackViewState extends State<TrackView> {
                 },
               ),
               IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    if (position.inSeconds <= duration.inSeconds - 10) {
+                      position = Duration(seconds: position.inSeconds + 10);
+                      player.seek(position);
+                      setState(() {});
+                    }
+                  },
                   icon:
                       const Icon(Icons.arrow_forward_ios, color: Colors.white)),
               IconButton(

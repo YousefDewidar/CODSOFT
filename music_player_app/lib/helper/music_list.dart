@@ -10,6 +10,14 @@ List<Track> musicList = [
   ),
   Track(
     img:
+        'https://www.mhrgnat.com/wp-content/uploads/2021/04/8556507f-7152-4e7b-b3ac-ebfef40840cf-800x500.jpg',
+    title: 'قولي لابوكي',
+    singer: 'الطيخا',
+    url:
+        "https://serv100.albumaty.com/songs_2020/Albumaty.Com_mhrganat_hmw_altykha_-_mhrgan_ya_tbal_ya_abn_altbalh.mp3",
+  ),
+  Track(
+    img:
         'https://i.ytimg.com/vi/OMPHZ8aXCV4/hq720_live.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDu9gIkEVANilvd7o2z6UtwUi4wLg',
     title: 'Sleepy Cat',
     singer: 'Alejandro Magaña ',
@@ -68,7 +76,7 @@ List<Track> musicList = [
 ];
 
 List<Track> recPlayList = [
-    Track(
+  Track(
     img:
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrSFLKjph7cdyaUz-AjeAVDxH4YoQ5xkCqyA&s',
     title: 'Deep Urban',

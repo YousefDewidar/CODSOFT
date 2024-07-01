@@ -47,7 +47,6 @@ class AllTracks extends StatelessWidget {
                 height:404 -48,
                 child: ListView.builder(
                   physics:const BouncingScrollPhysics(),
-          
                   padding:const EdgeInsets.only(bottom: 100),
                   itemBuilder: (context, index) => TrackCard(
                     track: musicList[index],

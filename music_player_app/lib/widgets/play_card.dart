@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:music_player_app/constants.dart';
 import 'package:svg_flutter/svg.dart';
-
-import '../constants.dart';
 
 class PlayCard extends StatelessWidget {
   final double width;
@@ -46,6 +45,7 @@ class PlayCard extends StatelessWidget {
           shape: const CircleBorder(),
           fillColor: const Color(0xff404c57),
           child: SvgPicture.asset(
+            // ignore: deprecated_member_use
             color: Colors.white,
               isPlay ? 'assets/pause-svgrepo-com.svg' : 'assets/icon-play.svg'),
         ),
