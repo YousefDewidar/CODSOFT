@@ -24,6 +24,12 @@ class _TrackViewState extends State<TrackView> {
     player.play();
   }
 
+  String musicTimeNow(Duration num) {
+    String time = '0:00';
+    time = '${num.inMinutes}:${num.inSeconds}';
+    return time;
+  }
+
   @override
   void initState() {
     loadMusic();
@@ -72,7 +78,20 @@ class _TrackViewState extends State<TrackView> {
             style: Style.greyText,
           ),
           space(20),
-          Slider(value: .1, onChanged: (v) {}),
+          Slider(value: .5, onChanged: (v) {}),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'data',
+                  style: Style.white16,
+                ),
+                Text(musicTimeNow(player.position), style: Style.white16),
+              ],
+            ),
+          ),
           space(20),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -108,7 +127,7 @@ class _TrackViewState extends State<TrackView> {
                   icon: const Icon(Icons.share_outlined, color: Colors.white)),
             ],
           ),
-          space(110),
+          space(80),
           const DecorationCard()
         ],
       ),

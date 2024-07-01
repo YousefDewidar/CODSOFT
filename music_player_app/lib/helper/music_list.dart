@@ -66,3 +66,27 @@ List<Track> musicList = [
         "https://assets.mixkit.co/music/preview/mixkit-hazy-after-hours-132.mp3",
   ),
 ];
+
+List<Track> recPlayList = [
+    Track(
+    img:
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrSFLKjph7cdyaUz-AjeAVDxH4YoQ5xkCqyA&s',
+    title: 'Deep Urban',
+    singer: 'Eugenio Mininni',
+    url: "https://assets.mixkit.co/music/preview/mixkit-deep-urban-623.mp3",
+  ),
+  Track(
+    img: 'https://ychef.files.bbci.co.uk/1280x720/p0gl2nhp.jpg',
+    title: 'Hip Hop',
+    singer: 'Lily J',
+    url:
+        "https://assets.mixkit.co/music/preview/mixkit-tech-house-vibes-130.mp3",
+  ),
+  Track(
+    img:
+        'https://sloanreview.mit.edu/wp-content/uploads/2017/05/GEN-Kinni-Nason-Complicated-Complex-1200-382x255.jpg',
+    title: 'Complicated',
+    singer: 'Arulo',
+    url: "https://assets.mixkit.co/music/preview/mixkit-complicated-281.mp3",
+  ),
+];

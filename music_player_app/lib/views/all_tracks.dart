@@ -13,6 +13,7 @@ class AllTracks extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        scrolledUnderElevation: 0,
         title: Text(
           'Home',
           style: Style.white16,
@@ -24,41 +25,38 @@ class AllTracks extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0),
-          child: Stack(children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('Recently Played', style: Style.bold25white),
-                space(15),
-                SizedBox(
-                  height: 200,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) => RecentlyTrackCard(
-                      track: musicList[index],
-                    ),
-                    itemCount: musicList.length,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Recently Played', style: Style.bold25white),
+              space(15),
+              SizedBox(
+                height: 200,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) => RecentlyTrackCard(
+                    track: recPlayList[index],
                   ),
+                  itemCount: recPlayList.length,
                 ),
-                space(15),
-                Text('Tracks', style: Style.bold25white),
-                space(15),
-                SizedBox(
-                  height:404 -48,
-                  child: ListView.builder(
-                    physics:const BouncingScrollPhysics(),
-
-                    padding:const EdgeInsets.only(bottom: 100),
-                    itemBuilder: (context, index) => TrackCard(
-                      track: musicList[index],
-                    ),
-                    itemCount: musicList.length,
+              ),
+              space(15),
+              Text('Tracks', style: Style.bold25white),
+              space(15),
+              SizedBox(
+                height:404 -48,
+                child: ListView.builder(
+                  physics:const BouncingScrollPhysics(),
+          
+                  padding:const EdgeInsets.only(bottom: 100),
+                  itemBuilder: (context, index) => TrackCard(
+                    track: musicList[index],
                   ),
+                  itemCount: musicList.length,
                 ),
-              ],
-            ),
-            
-          ]),
+              ),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: Container(

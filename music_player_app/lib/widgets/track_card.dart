@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:music_player_app/constants.dart';
+import 'package:music_player_app/helper/music_list.dart';
 import 'package:music_player_app/model/track_model.dart';
 import 'package:music_player_app/views/track_view.dart';
 
@@ -11,6 +12,7 @@ class TrackCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        recPlayList.insert(0, track);
         Navigator.push(
           context,
           MaterialPageRoute(
@@ -42,7 +44,8 @@ class TrackCard extends StatelessWidget {
                     Text(track.title, style: Style.bold16white),
                     Row(
                       children: [
-                        Text('${track.singer} | ', style: Style.greyText),
+                        Text('${track.singer} | ',
+                            style: Style.greyText),
                         Text('3:06', style: Style.greyText),
                       ],
                     ),
