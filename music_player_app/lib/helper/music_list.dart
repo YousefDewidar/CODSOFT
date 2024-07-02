@@ -78,18 +78,11 @@ class MusicList {
 
   static List<Track> recentlyList = [
     Track(
-      img:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrSFLKjph7cdyaUz-AjeAVDxH4YoQ5xkCqyA&s',
-      title: 'Deep Urban',
-      singer: 'Eugenio Mininni',
-      url: "https://assets.mixkit.co/music/preview/mixkit-deep-urban-623.mp3",
-    ),
-    Track(
-      img: 'https://ychef.files.bbci.co.uk/1280x720/p0gl2nhp.jpg',
-      title: 'Hip Hop',
-      singer: 'Lily J',
+      img: 'https://i.ytimg.com/vi/onQBG7yz8I4/maxresdefault.jpg',
+      title: 'Beautiful Dream',
+      singer: 'Diego Nava',
       url:
-          "https://assets.mixkit.co/music/preview/mixkit-tech-house-vibes-130.mp3",
+          "https://assets.mixkit.co/music/preview/mixkit-beautiful-dream-493.mp3",
     ),
     Track(
       img:
