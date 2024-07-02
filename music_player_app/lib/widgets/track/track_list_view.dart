@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:music_player_app/helper/music_list.dart';
-import 'package:music_player_app/widgets/track_card.dart';
+import 'package:music_player_app/widgets/track/track_card.dart';
 
 class TrackListView extends StatelessWidget {
   const TrackListView({

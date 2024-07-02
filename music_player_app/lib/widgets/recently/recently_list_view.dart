@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_player_app/cubit/track_cubit.dart';
@@ -15,6 +16,8 @@ class RecentlyListView extends StatefulWidget {
 }
 
 class _RecentlyListViewState extends State<RecentlyListView> {
+  List<Widget> myWidgets =
+      MusicList.recentlyList.map((e) => RecentlyCard(track: e)).toList();
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -22,16 +25,26 @@ class _RecentlyListViewState extends State<RecentlyListView> {
       child: BlocListener<TrackCubit, TrackState>(
         listener: (context, state) {
           if (state is InitState) {
+            myWidgets = MusicList.recentlyList
+                .map((e) => RecentlyCard(track: e))
+                .toList();
             setState(() {});
           }
         },
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) => RecentlyCard(
-            track: MusicList.recentlyList[index],
-          ),
-          itemCount: MusicList.recentlyList.length,
-        ),
+        child: CarouselSlider(
+            items: myWidgets,
+            options: CarouselOptions(
+              height: 250,
+              aspectRatio: 16 / 9,
+              viewportFraction: 0.6,
+              enlargeFactor: 0.3,
+              enlargeCenterPage: true,
+              initialPage: 0,
+              autoPlay: true,
+              autoPlayInterval: const Duration(seconds: 3),
+              autoPlayAnimationDuration: const Duration(milliseconds: 800),
+              autoPlayCurve: Curves.fastOutSlowIn,
+            )),
       ),
     );
   }

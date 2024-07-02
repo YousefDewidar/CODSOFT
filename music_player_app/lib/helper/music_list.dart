@@ -85,6 +85,13 @@ class MusicList {
           "https://assets.mixkit.co/music/preview/mixkit-beautiful-dream-493.mp3",
     ),
     Track(
+      img: 'https://ychef.files.bbci.co.uk/1280x720/p0gl2nhp.jpg',
+      title: 'Hip Hop',
+      singer: 'Lily J',
+      url:
+          "https://assets.mixkit.co/music/preview/mixkit-tech-house-vibes-130.mp3",
+    ),
+    Track(
       img:
           'https://sloanreview.mit.edu/wp-content/uploads/2017/05/GEN-Kinni-Nason-Complicated-Complex-1200-382x255.jpg',
       title: 'Complicated',

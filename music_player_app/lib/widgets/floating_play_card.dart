@@ -6,6 +6,7 @@ import 'package:music_player_app/constants.dart';
 import 'package:music_player_app/cubit/track_cubit.dart';
 import 'package:music_player_app/cubit/track_state.dart';
 import 'package:music_player_app/model/track_model.dart';
+import 'package:music_player_app/views/track_view.dart';
 import 'package:music_player_app/widgets/play_card.dart';
 
 class FloatingPlayCard extends StatefulWidget {
@@ -31,71 +32,83 @@ class _FloatingPlayCardState extends State<FloatingPlayCard> {
 
   @override
   Widget build(BuildContext context) {
-    return GlassmorphicContainer(
-      width: 345,
-      height: 70,
-      borderRadius: 30,
-      linearGradient: LinearGradient(
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-        colors: [
-          const Color.fromARGB(8, 225, 225, 225).withOpacity(0.1),
-          Colors.white.withOpacity(0.1),
-        ],
-      ),
-      border: 0,
-      blur: 14,
-      borderGradient: LinearGradient(
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-        colors: [Col.blueCol, Col.pinkCol],
-      ),
-      child: BlocListener<TrackCubit, TrackState>(
-        listener: (context, state) async {
-          if (state is InitState) {
-            setState(() {
-              track = BlocProvider.of<TrackCubit>(context).myTrack!;
-            });
-          }
-        },
-        child: BottomAppBar(
-          color: Colors.transparent,
-          notchMargin: 4,
-          elevation: 0,
-          child: Row(
-            children: [
-              PlayCard(
-                isPlay: isPlay,
-                onPressed: () async {
-                  if (isPlay == true) {
-                    isPlay = false;
-                    player.pause();
-                    setState(() {});
-                  } else if (isPlay == false) {
-                    isPlay = true;
-                    await player.setUrl(track.url);
-                    player.play();
-                    setState(() {});
-                  }
-                },
-              ),
-              space(15, dir: 'h'),
-              // track name & time
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(track.title, style: Style.bold16white),
-                  Text(track.singer.split(' ')[0],
-                      style: const TextStyle(color: Colors.grey, fontSize: 15)),
-                ],
-              ),
-              const Spacer(),
-              Image.network(
-                track.img,
-                height: 50,
-                width: 60,
-              ),
-            ],
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => TrackView(
+                    track: track,
+                  )),
+        );
+      },
+      child: GlassmorphicContainer(
+        width: 345,
+        height: 70,
+        borderRadius: 30,
+        linearGradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            const Color.fromARGB(8, 225, 225, 225).withOpacity(0.1),
+            Colors.white.withOpacity(0.1),
+          ],
+        ),
+        border: 0,
+        blur: 14,
+        borderGradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [Col.blueCol, Col.pinkCol],
+        ),
+        child: BlocListener<TrackCubit, TrackState>(
+          listener: (context, state) async {
+            if (state is InitState) {
+              setState(() {
+                track = BlocProvider.of<TrackCubit>(context).myTrack!;
+              });
+            }
+          },
+          child: BottomAppBar(
+            color: Colors.transparent,
+            notchMargin: 4,
+            elevation: 0,
+            child: Row(
+              children: [
+                PlayCard(
+                  isPlay: isPlay,
+                  onPressed: () async {
+                    if (isPlay == true) {
+                      isPlay = false;
+                      player.pause();
+                      setState(() {});
+                    } else if (isPlay == false) {
+                      isPlay = true;
+                      await player.setUrl(track.url);
+                      player.play();
+                      setState(() {});
+                    }
+                  },
+                ),
+                space(15, dir: 'h'),
+                // track name & time
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(track.title, style: Style.bold16white),
+                    Text(track.singer.split(' ')[0],
+                        style:
+                            const TextStyle(color: Colors.grey, fontSize: 15)),
+                  ],
+                ),
+                const Spacer(),
+                Image.network(
+                  track.img,
+                  height: 50,
+                  width: 60,
+                ),
+              ],
+            ),
           ),
         ),
       ),
