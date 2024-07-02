@@ -2,111 +2,109 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_player_app/constants.dart';
 import 'package:music_player_app/cubit/track_cubit.dart';
-import 'package:music_player_app/cubit/track_state.dart';
-import 'package:music_player_app/helper/music_list.dart';
 import 'package:music_player_app/widgets/floating_play_card.dart';
-import 'package:music_player_app/widgets/recently_card.dart';
-import 'package:music_player_app/widgets/track_card.dart';
+import 'package:music_player_app/widgets/recently/recently_list_view.dart';
+import 'package:music_player_app/widgets/track/track_list_view.dart';
 
-class AllTracks extends StatelessWidget {
+class AllTracks extends StatefulWidget {
   const AllTracks({super.key});
   static String id = 'tracks';
+
+  @override
+  State<AllTracks> createState() => _AllTracksState();
+}
+
+class _AllTracksState extends State<AllTracks> {
+  PageController pageController = PageController();
+  int curIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => TrackCubit(),
       child: Scaffold(
+        backgroundColor: Col.backgroundCol,
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButton: const FloatingPlayCard(),
         appBar: AppBar(
+          title:
+              Text(curIndex == 0 ? 'Home' : 'Favorite', style: Style.white16),
           scrolledUnderElevation: 0,
-          title: Text(
-            'Home',
-            style: Style.white16,
-          ),
           centerTitle: true,
           backgroundColor: Col.backgroundCol,
         ),
-        backgroundColor: Col.backgroundCol,
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('Recently Played', style: Style.bold25white),
-                space(15),
-                RecentlyView(),
-                space(15),
-                Text('Tracks', style: Style.bold25white),
-                space(15),
-                SizedBox(
-                  height: 404 - 48,
-                  child: ListView.builder(
-                    physics: const BouncingScrollPhysics(),
-                    padding: const EdgeInsets.only(bottom: 100),
-                    itemBuilder: (context, index) => TrackCard(
-                      track: musicList[index],
-                    ),
-                    itemCount: musicList.length,
-                  ),
-                ),
-              ],
+            child: PageView(
+              controller: pageController,
+              onPageChanged: (value) {
+                curIndex = value;
+                setState(() {});
+              },
+              children: const [Home(), Favorite()],
             ),
           ),
         ),
-        bottomNavigationBar: Container(
-          color: Col.backgroundCol,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.home),
-                  color: const Color.fromARGB(136, 255, 255, 255)),
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.favorite,
-                  ),
-                  color: const Color.fromARGB(136, 255, 255, 255)),
-            ],
-          ),
+        bottomNavigationBar: NavigationBar(
+          backgroundColor: Col.backgroundCol,
+          selectedIndex: curIndex,
+          onDestinationSelected: (value) {
+            curIndex = value;
+            pageController.jumpToPage(curIndex);
+            setState(() {});
+          },
+          destinations: const [
+            NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+            NavigationDestination(
+                icon: Icon(Icons.favorite), label: 'Favorite'),
+          ],
         ),
-        floatingActionButton: const FloatingPlayCard(),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       ),
     );
   }
 }
 
-class RecentlyView extends StatefulWidget {
-  const RecentlyView({
+class Home extends StatelessWidget {
+  const Home({
     super.key,
   });
 
   @override
-  State<RecentlyView> createState() => _RecentlyViewState();
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text('Recently Played', style: Style.bold25white),
+        space(15),
+        const RecentlyListView(),
+        space(15),
+        Text('Tracks', style: Style.bold25white),
+        space(15),
+        const TrackListView(),
+      ],
+    );
+  }
 }
 
-class _RecentlyViewState extends State<RecentlyView> {
+class Favorite extends StatelessWidget {
+  const Favorite({
+    super.key,
+  });
+
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 200,
-      child: BlocListener<TrackCubit, TrackState>(
-        listener: (context, state) {
-          if (state is InitState) {
-            setState(() {});
-          }
-        },
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) => RecentlyTrackCard(
-            track: recPlayList[index],
-          ),
-          itemCount: recPlayList.length,
-        ),
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text('Favorite', style: Style.bold25white),
+        space(15),
+        const RecentlyListView(),
+        space(15),
+        Text('Tracks', style: Style.bold25white),
+        space(15),
+        const TrackListView(),
+      ],
     );
   }
 }

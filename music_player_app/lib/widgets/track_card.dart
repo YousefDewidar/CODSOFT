@@ -14,8 +14,8 @@ class TrackCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-      BlocProvider.of<TrackCubit>(context).setFloatingTrack(track);
-        recPlayList.insert(0, track);
+        BlocProvider.of<TrackCubit>(context).setFloatingTrack(track);
+        MusicList.recentlyList.insert(0, track);
         Navigator.push(
           context,
           MaterialPageRoute(

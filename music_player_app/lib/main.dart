@@ -16,7 +16,6 @@ class SamanyApp extends StatelessWidget {
       routes: {
         HomeView.id:(context) => const HomeView(),
         AllTracks.id:(context) =>const AllTracks(),
-        
       },
       initialRoute:  AllTracks.id ,
     );

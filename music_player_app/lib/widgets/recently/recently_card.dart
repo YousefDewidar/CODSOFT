@@ -3,8 +3,8 @@ import 'package:music_player_app/constants.dart';
 import 'package:music_player_app/model/track_model.dart';
 import 'package:music_player_app/views/track_view.dart';
 
-class RecentlyTrackCard extends StatelessWidget {
-  const RecentlyTrackCard({super.key, required this.track});
+class RecentlyCard extends StatelessWidget {
+  const RecentlyCard({super.key, required this.track});
   final Track track;
 
   @override
