@@ -18,7 +18,6 @@ class FloatingPlayCard extends StatefulWidget {
 }
 
 class _FloatingPlayCardState extends State<FloatingPlayCard> {
-  AudioPlayer player = AudioPlayer();
   Track track = Track(
     img:
         'https://source.boomplaymusic.com/group10/M00/02/03/3fa2484d4d764a8b8efa28a07c98a767_320_320.jpg',
@@ -28,6 +27,7 @@ class _FloatingPlayCardState extends State<FloatingPlayCard> {
         "https://assets.mixkit.co/music/preview/mixkit-tech-house-vibes-130.mp3",
   );
   bool isPlay = false;
+  AudioPlayer player = AudioPlayer();
   @override
   Widget build(BuildContext context) {
     return GlassmorphicContainer(
@@ -53,8 +53,6 @@ class _FloatingPlayCardState extends State<FloatingPlayCard> {
         listener: (context, state) async {
           if (state is InitState) {
             track = BlocProvider.of<TrackCubit>(context).myTrack!;
-            await player.setUrl(track.url);
-            isPlay = true;
             setState(() {});
           }
         },
@@ -84,7 +82,8 @@ class _FloatingPlayCardState extends State<FloatingPlayCard> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(track.title, style: Style.bold16white),
-                  Text(track.singer.split(' ')[0], style: Style.greyText),
+                  Text(track.singer.split(' ')[0],
+                      style: const TextStyle(color: Colors.grey, fontSize: 15)),
                 ],
               ),
               const Spacer(),

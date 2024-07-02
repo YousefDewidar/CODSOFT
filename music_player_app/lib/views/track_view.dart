@@ -47,7 +47,9 @@ class TrackView extends StatelessWidget {
             style: Style.greyText,
           ),
           space(20),
-          PlayArea(track: track),
+          PlayArea(
+            track: track,
+          ),
           const DecorationCard()
         ],
       ),

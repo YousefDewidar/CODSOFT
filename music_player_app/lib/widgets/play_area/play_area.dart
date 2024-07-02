@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:music_player_app/constants.dart';
-import 'package:music_player_app/helper/music_list.dart';
 import 'package:music_player_app/model/track_model.dart';
 import 'package:music_player_app/widgets/play_card.dart';
 
@@ -50,7 +49,6 @@ class _PlayAreaState extends State<PlayArea> {
   @override
   void dispose() {
     positionSubscription.cancel();
-    player.dispose();
     super.dispose();
   }
 
@@ -130,9 +128,7 @@ class _PlayAreaState extends State<PlayArea> {
                 },
                 icon: const Icon(Icons.arrow_forward_ios, color: Colors.white)),
             IconButton(
-                onPressed: () {
-                  print(MusicList.favotiteList);
-                },
+                onPressed: () {},
                 icon: const Icon(Icons.share_outlined, color: Colors.white)),
           ],
         ),
