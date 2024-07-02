@@ -1,14 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:glassmorphism/glassmorphism.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:music_player_app/constants.dart';
+import 'package:music_player_app/cubit/track_cubit.dart';
+import 'package:music_player_app/cubit/track_state.dart';
+import 'package:music_player_app/model/track_model.dart';
 import 'package:music_player_app/widgets/play_card.dart';
 
-class FloatingPlayCard extends StatelessWidget {
-  const 
-  FloatingPlayCard({
+class FloatingPlayCard extends StatefulWidget {
+  const FloatingPlayCard({
     super.key,
   });
 
+  @override
+  State<FloatingPlayCard> createState() => _FloatingPlayCardState();
+}
+
+class _FloatingPlayCardState extends State<FloatingPlayCard> {
+  AudioPlayer player = AudioPlayer();
+  Track track = Track(
+    img:
+        'https://source.boomplaymusic.com/group10/M00/02/03/3fa2484d4d764a8b8efa28a07c98a767_320_320.jpg',
+    title: 'Tech House vibes',
+    singer: 'Alejandro Magaña',
+    url:
+        "https://assets.mixkit.co/music/preview/mixkit-tech-house-vibes-130.mp3",
+  );
+  bool isPlay = false;
   @override
   Widget build(BuildContext context) {
     return GlassmorphicContainer(
@@ -30,34 +49,52 @@ class FloatingPlayCard extends StatelessWidget {
         end: Alignment.bottomCenter,
         colors: [Col.blueCol, Col.pinkCol],
       ),
-      child: BottomAppBar(
-        color: Colors.transparent,
-        notchMargin: 4,
-        elevation: 0,
-        child: Row(
-          children: [
-            const PlayCard(isPlay: false,),
-            space(15, dir: 'h'),
-            // track name & time
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('Home Eyes', style: Style.bold16white),
-                Row(
-                  children: [
-                    Text('singer | ', style: Style.greyText),
-                    Text('3:06', style: Style.greyText),
-                  ],
-                ),
-              ],
-            ),
-            const Spacer(),
-            Image.asset(
-              'assets/35228-3-pizza-slice-file.png',
-              height: 50,
-              width: 60,
-            ),
-          ],
+      child: BlocListener<TrackCubit, TrackState>(
+        listener: (context, state) async {
+          if (state is InitState) {
+            track = BlocProvider.of<TrackCubit>(context).myTrack!;
+            await player.setUrl(track.url);
+            isPlay = true;
+            setState(() {});
+          }
+        },
+        child: BottomAppBar(
+          color: Colors.transparent,
+          notchMargin: 4,
+          elevation: 0,
+          child: Row(
+            children: [
+              PlayCard(
+                isPlay: isPlay,
+                onPressed: () {
+                  if (isPlay == true) {
+                    isPlay = false;
+                    player.pause();
+                    setState(() {});
+                  } else if (isPlay == false) {
+                    isPlay = true;
+                    player.play();
+                    setState(() {});
+                  }
+                },
+              ),
+              space(15, dir: 'h'),
+              // track name & time
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(track.title, style: Style.bold16white),
+                  Text(track.singer.split(' ')[0], style: Style.greyText),
+                ],
+              ),
+              const Spacer(),
+              Image.network(
+                track.img,
+                height: 50,
+                width: 60,
+              ),
+            ],
+          ),
         ),
       ),
     );

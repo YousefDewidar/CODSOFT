@@ -39,6 +39,7 @@ dependencies:
   svg_flutter: ^0.0.1
   glassmorphism: ^3.0.0
   just_audio: ^0.9.38
+  flutter_bloc: ^8.1.6
 
 
 dev_dependencies:
