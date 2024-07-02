@@ -3,6 +3,7 @@ import 'package:music_player_app/constants.dart';
 import 'package:music_player_app/model/track_model.dart';
 import 'package:music_player_app/widgets/arrow_app_bar.dart';
 import 'package:music_player_app/widgets/decoration_card.dart';
+import 'package:music_player_app/widgets/favorite/favorite_button.dart';
 import 'package:music_player_app/widgets/play_area/play_area.dart';
 
 class TrackView extends StatelessWidget {
@@ -32,13 +33,8 @@ class TrackView extends StatelessWidget {
             radius: 120,
           ),
           space(20),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.favorite,
-              color: Colors.blue,
-              size: 30,
-            ),
+          FavoriteButton(
+            track: track,
           ),
           space(20),
           Text(
