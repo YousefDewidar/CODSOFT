@@ -49,6 +49,7 @@ class _PlayAreaState extends State<PlayArea> {
   @override
   void dispose() {
     positionSubscription.cancel();
+    player.dispose();
     super.dispose();
   }
 
