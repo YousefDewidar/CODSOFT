@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animated_icons/icons8.dart';
+import 'package:lottie/lottie.dart';
 import 'package:music_player_app/helper/music_list.dart';
 import 'package:music_player_app/model/track_model.dart';
 
@@ -13,30 +15,45 @@ class FavoriteButton extends StatefulWidget {
   State<FavoriteButton> createState() => _FavoriteButtonState();
 }
 
-class _FavoriteButtonState extends State<FavoriteButton> {
-  late bool isFav;
+class _FavoriteButtonState extends State<FavoriteButton>
+    with TickerProviderStateMixin {
+  late AnimationController favoriteController;
+  // late bool isFav;
+
+  @override
+  void initState() {
+    super.initState();
+    favoriteController =
+        AnimationController(vsync: this, duration: const Duration(seconds: 1));
+  }
+
+  @override
+  void dispose() {
+    favoriteController.dispose();
+    super.dispose();
+  }animated
+
   @override
   Widget build(BuildContext context) {
     if (MusicList.favotiteList.contains(widget.track)) {
-      isFav = true;
+      favoriteController.animateTo(0.6);
     } else {
-      isFav = false;
+      favoriteController.stop();
     }
     return IconButton(
       onPressed: () {
-        isFav = !isFav;
-        setState(() {});
-        if (isFav && !MusicList.favotiteList.contains(widget.track)) {
-          MusicList.favotiteList.add(widget.track);
+        if (favoriteController.status == AnimationStatus.dismissed) {
+          if (!MusicList.favotiteList.contains(widget.track)) {
+            MusicList.favotiteList.add(widget.track);
+            favoriteController.animateTo(0.6); //play
+          }
         } else {
           MusicList.favotiteList.remove(widget.track);
+          favoriteController.reverse(); //stop
         }
       },
-      icon: Icon(
-        isFav ? Icons.favorite : Icons.favorite_border,
-        color: Colors.pink,
-        size: 30,
-      ),
+      icon: Lottie.asset(Icons8.heart_color,
+          width: 37, height: 35, controller: favoriteController),
     );
   }
 }

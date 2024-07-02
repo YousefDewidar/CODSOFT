@@ -44,7 +44,7 @@ class _TrackViewState extends State<TrackView> {
                 appearance: CircularSliderAppearance(
                   size: 310,
                   customWidths: CustomSliderWidths(
-                    progressBarWidth: 16,
+                    progressBarWidth: 14,
                   ),
                 ),
                 min: 0,
@@ -96,11 +96,11 @@ class _TrackViewState extends State<TrackView> {
               ),
             ],
           ),
-          space(20),
+          space(10),
           FavoriteButton(
             track: widget.track,
           ),
-          space(20),
+          space(10),
           Text(
             widget.track.title,
             style: Style.bold25white,
