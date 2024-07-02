@@ -99,4 +99,6 @@ class MusicList {
       url: "https://assets.mixkit.co/music/preview/mixkit-complicated-281.mp3",
     ),
   ];
+
+  static List<Track> favotiteList = [];
 }

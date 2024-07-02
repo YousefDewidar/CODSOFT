@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:music_player_app/constants.dart';
 import 'package:music_player_app/cubit/track_cubit.dart';
+import 'package:music_player_app/widgets/favorite/favorite_list_view.dart';
 import 'package:music_player_app/widgets/floating_play_card.dart';
 import 'package:music_player_app/widgets/recently/recently_list_view.dart';
 import 'package:music_player_app/widgets/track/track_list_view.dart';
@@ -28,7 +29,7 @@ class _AllTracksState extends State<AllTracks> {
         floatingActionButton: const FloatingPlayCard(),
         appBar: AppBar(
           title:
-              Text(curIndex == 0 ? 'Home' : 'Favorite', style: Style.white16),
+              Text(curIndex == 0 ? 'Home' : 'Favorite Tracks', style: Style.white16),
           scrolledUnderElevation: 0,
           centerTitle: true,
           backgroundColor: Col.backgroundCol,
@@ -47,6 +48,10 @@ class _AllTracksState extends State<AllTracks> {
           ),
         ),
         bottomNavigationBar: NavigationBar(
+          labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
+          elevation: 0,
+          indicatorColor:  const Color.fromARGB(110, 34, 29, 62),
+          height: 60,
           backgroundColor: Col.backgroundCol,
           selectedIndex: curIndex,
           onDestinationSelected: (value) {
@@ -55,9 +60,16 @@ class _AllTracksState extends State<AllTracks> {
             setState(() {});
           },
           destinations: const [
-            NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
             NavigationDestination(
-                icon: Icon(Icons.favorite), label: 'Favorite'),
+                icon: Icon(
+                  Icons.home,
+                  color: Color.fromARGB(150, 255, 255, 255),
+                ),
+                label: 'Home'),
+            NavigationDestination(
+                icon: Icon(Icons.favorite,
+                    color: Color.fromARGB(150, 255, 255, 255)),
+                label: 'Favorite'),
           ],
         ),
       ),
@@ -98,12 +110,7 @@ class Favorite extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text('Favorite', style: Style.bold25white),
-        space(15),
-        const RecentlyListView(),
-        space(15),
-        Text('Tracks', style: Style.bold25white),
-        space(15),
-        const TrackListView(),
+        const FavoriteListView(),
       ],
     );
   }
