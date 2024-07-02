@@ -31,7 +31,7 @@ class _FavoriteButtonState extends State<FavoriteButton>
   void dispose() {
     favoriteController.dispose();
     super.dispose();
-  }animated
+  }
 
   @override
   Widget build(BuildContext context) {
