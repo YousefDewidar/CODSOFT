@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:todo_app/constant.dart';
 import 'package:todo_app/views/home_view.dart';
 
 class SplashView extends StatefulWidget {
@@ -40,7 +41,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff1b4332),
+      backgroundColor: kPrimaryCol,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,

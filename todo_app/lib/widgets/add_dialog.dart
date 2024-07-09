@@ -23,6 +23,7 @@ class _AddDialogState extends State<AddDialog> {
         child: Column(
           children: [
             TextField(
+              autofocus: true,
               controller: myController,
               decoration: const InputDecoration(
                 labelText: "Add new task",

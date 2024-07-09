@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todo_app/constant.dart';
 import 'package:todo_app/cubit/operations_cubit.dart';
 import 'package:todo_app/cubit/operations_state.dart';
 import 'package:todo_app/widgets/custom_floating_button.dart';
@@ -41,7 +42,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color(0xff1b4332),
+        backgroundColor: kPrimaryCol,
         floatingActionButton: const CustomFloatingButton(),
         appBar: customAppBar(context),
         body: SingleChildScrollView(

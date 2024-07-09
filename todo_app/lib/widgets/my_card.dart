@@ -16,7 +16,7 @@ class MyCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: const EdgeInsets.fromLTRB(30, 20, 30, 0),
+        margin: const EdgeInsets.fromLTRB(8, 20, 8, 0),
         padding: const EdgeInsets.all(13),
         width: double.infinity,
         height: 70,
