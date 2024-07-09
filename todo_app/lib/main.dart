@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:todo_app/cubit/operations_cubit.dart';
 import 'package:todo_app/views/splash_view.dart';
 
-void main() {
+void main() async{
+  await Hive.initFlutter();
+  await Hive.openBox('tasks');
   runApp(const ToDoApp());
 }
 

@@ -18,17 +18,13 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-
     animationController = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 500));
-
     animationImg = Tween<Offset>(begin: const Offset(0, -.9), end: Offset.zero)
         .animate(animationController);
-
     animationWord = Tween<Offset>(begin: const Offset(0, 5), end: Offset.zero)
         .animate(animationController);
     animationController.forward();
-
     Timer(const Duration(seconds: 1), () {
       Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (context) => const HomeView()));
